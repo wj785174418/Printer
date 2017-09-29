@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    android:id="@+id/layout_setting"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.example.mrx.printer.customView.DialView
+        android:id="@+id/dial_m"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/dial_s"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginLeft="16dp" />
+
+    <com.example.mrx.printer.customView.DialView
+        android:id="@+id/dial_s"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toLeftOf="@+id/dial_m"
+        app:layout_constraintRight_toRightOf="@+id/dial_m"
+        app:layout_constraintTop_toBottomOf="@+id/dial_m"
+        app:layout_constraintBottom_toTopOf="@+id/dial_c"/>
+
+    <com.example.mrx.printer.customView.DialView
+        android:id="@+id/dial_c"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toLeftOf="@+id/dial_m"
+        app:layout_constraintRight_toRightOf="@+id/dial_m"
+        app:layout_constraintTop_toBottomOf="@+id/dial_s"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.example.mrx.printer.customView.MultipleProgress
+        android:id="@+id/feed_rate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_fixed1"
+        app:layout_constraintLeft_toRightOf="@+id/dial_m"
+        app:layout_constraintRight_toLeftOf="@+id/flow_rate"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" />
+
+    <com.example.mrx.printer.customView.MultipleProgress
+        android:id="@+id/flow_rate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_fixed2"
+        app:layout_constraintLeft_toRightOf="@+id/feed_rate"
+        app:layout_constraintRight_toLeftOf="@+id/speed_m_fan"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" />
+
+    <com.example.mrx.printer.customView.MultipleProgress
+        android:id="@+id/speed_m_fan"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_fixed3"
+        app:layout_constraintLeft_toRightOf="@+id/flow_rate"
+        app:layout_constraintRight_toLeftOf="@+id/speed_s_fan"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" />
+
+    <com.example.mrx.printer.customView.MultipleProgress
+        android:id="@+id/speed_s_fan"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_fixed4"
+        app:layout_constraintLeft_toRightOf="@+id/speed_m_fan"
+        app:layout_constraintRight_toLeftOf="@+id/t_axis_x"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" />
+
+    <com.example.mrx.printer.customView.MultipleProgress
+        android:id="@+id/t_axis_x"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_fixed5"
+        app:layout_constraintLeft_toRightOf="@+id/speed_s_fan"
+        app:layout_constraintRight_toLeftOf="@+id/t_axis_y"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" />
+
+    <com.example.mrx.printer.customView.MultipleProgress
+        android:id="@+id/t_axis_y"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_fixed6"
+        app:layout_constraintLeft_toRightOf="@+id/t_axis_x"
+        app:layout_constraintRight_toLeftOf="@+id/t_pcba"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" />
+
+    <com.example.mrx.printer.customView.MultipleProgress
+        android:id="@+id/t_pcba"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_fixed7"
+        app:layout_constraintLeft_toRightOf="@+id/t_axis_y"
+        app:layout_constraintRight_toLeftOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" />
+
+    <com.example.mrx.printer.customView.MultipleProgress
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_fixed7"
+        app:layout_constraintLeft_toRightOf="@+id/t_pcba"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp" />
+
+    <TextView
+        android:id="@+id/text_fixed1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feed rate"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/feed_rate"
+        app:layout_constraintRight_toRightOf="@+id/feed_rate"
+        app:layout_constraintTop_toBottomOf="@+id/feed_rate"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/text_fixed2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flow rate"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/flow_rate"
+        app:layout_constraintRight_toRightOf="@+id/flow_rate"
+        app:layout_constraintTop_toBottomOf="@+id/flow_rate"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/text_fixed3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="M-Fan speed"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/speed_m_fan"
+        app:layout_constraintRight_toRightOf="@+id/speed_m_fan"
+        app:layout_constraintTop_toBottomOf="@+id/speed_m_fan"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/text_fixed4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S-Fan speed"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/speed_s_fan"
+        app:layout_constraintRight_toRightOf="@+id/speed_s_fan"
+        app:layout_constraintTop_toBottomOf="@+id/speed_s_fan"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/text_fixed5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="T- Xaxis"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/t_axis_x"
+        app:layout_constraintRight_toRightOf="@+id/t_axis_x"
+        app:layout_constraintTop_toBottomOf="@+id/t_axis_x"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/text_fixed6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="T- Yaxis"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/t_axis_y"
+        app:layout_constraintRight_toRightOf="@+id/t_axis_y"
+        app:layout_constraintTop_toBottomOf="@+id/t_axis_y"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/text_fixed7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="T- PCBA"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/t_pcba"
+        app:layout_constraintRight_toRightOf="@+id/t_pcba"
+        app:layout_constraintTop_toBottomOf="@+id/t_pcba"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:id="@+id/inputView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+</android.support.constraint.ConstraintLayout>

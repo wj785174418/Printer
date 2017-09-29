@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/vertical_50"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="296dp" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontal_56"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.56"
+        tools:layout_editor_absoluteY="201dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <com.example.mrx.printer.customView.DialView
+        android:id="@+id/dial_m"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/dial_s"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/dial_c"/>
+
+    <com.example.mrx.printer.customView.DialView
+        android:id="@+id/dial_c"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintLeft_toLeftOf="@id/dial_m"
+        app:layout_constraintRight_toRightOf="@id/dial_m"
+        app:layout_constraintTop_toBottomOf="@id/dial_m"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_56"/>
+
+    <com.example.mrx.printer.customView.DialView
+        android:id="@+id/dial_s"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintLeft_toRightOf="@id/dial_m"
+        app:layout_constraintRight_toLeftOf="@+id/vertical_50"
+        app:layout_constraintTop_toTopOf="@id/dial_m"
+        app:layout_constraintBottom_toBottomOf="@id/dial_m" />
+
+    <com.example.mrx.printer.customView.DialView
+        android:id="@+id/dial_t"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="@id/dial_s"
+        app:layout_constraintRight_toRightOf="@id/dial_s"
+        app:layout_constraintTop_toTopOf="@id/dial_c"
+        app:layout_constraintBottom_toBottomOf="@id/dial_c"/>
+
+
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/touch_bg_btn_stop"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_56"
+        app:layout_constraintBottom_toTopOf="@+id/btn_pause"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/view1"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <Button
+        android:id="@+id/btn_pause"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/touch_bg_btn_pause"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toTopOf="@+id/btn_key"
+        app:layout_constraintLeft_toLeftOf="@id/btn_stop"
+        app:layout_constraintRight_toRightOf="@id/btn_stop"
+        app:layout_constraintTop_toBottomOf="@id/btn_stop"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <Button
+        android:id="@id/btn_key"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/touch_bg_btn_key"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/btn_stop"
+        app:layout_constraintRight_toRightOf="@id/btn_stop"
+        app:layout_constraintTop_toBottomOf="@id/btn_pause"
+        android:layout_marginTop="5dp"
+         />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_56"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintLeft_toRightOf="@id/btn_stop"
+        app:layout_constraintRight_toLeftOf="@+id/view2"/>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/view1"
+        app:layout_constraintRight_toRightOf="@id/vertical_50"
+        app:layout_constraintTop_toTopOf="@id/horizontal_56"
+        app:layout_constraintBottom_toTopOf="@+id/view4"/>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/red"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:layout_constraintBottom_toTopOf="@+id/text_m"
+        app:layout_constraintLeft_toLeftOf="@id/view1"
+        app:layout_constraintRight_toRightOf="@id/view1"/>
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="@id/view2"
+        app:layout_constraintRight_toRightOf="@id/view2"
+        app:layout_constraintTop_toBottomOf="@id/view2"
+        app:layout_constraintBottom_toTopOf="@+id/text_s"/>
+
+    <TextView
+        android:id="@+id/text_abs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ABS"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/text_m"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/view1"
+        app:layout_constraintRight_toRightOf="@id/view1"/>
+
+    <TextView
+        android:id="@+id/text_pva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PVA"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/text_s"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/view2"
+        app:layout_constraintRight_toRightOf="@id/view2"/>
+
+    <TextView
+        android:id="@+id/text_s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S"
+        android:textSize="12sp"
+        android:textColor="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/view4"
+        app:layout_constraintBottom_toTopOf="@id/text_pva"
+        app:layout_constraintLeft_toLeftOf="@id/view2"
+        app:layout_constraintRight_toRightOf="@id/view2"/>
+
+    <TextView
+        android:id="@+id/text_m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="M"
+        android:textSize="12sp"
+        android:textColor="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/view3"
+        app:layout_constraintBottom_toTopOf="@id/text_abs"
+        app:layout_constraintLeft_toLeftOf="@id/view1"
+        app:layout_constraintRight_toRightOf="@id/view1"/>
+
+    <com.example.mrx.printer.customView.RotationImage
+        android:id="@+id/rotation_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/vertical_50"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scaleType="centerInside"/>
+
+</android.support.constraint.ConstraintLayout>
