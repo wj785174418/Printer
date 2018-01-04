@@ -23,9 +23,8 @@ public class RotationImage extends android.support.v7.widget.AppCompatImageView 
 
     private OnTouchRotation onTouchRotation;
 
-    private List<Bitmap> imageList;
+    private int[] imageResources;
 
-    private Bitmap curImage;
     private int curIndex;
 
     private float startX;
@@ -58,16 +57,8 @@ public class RotationImage extends android.support.v7.widget.AppCompatImageView 
         this.onTouchRotation = onTouchRotation;
     }
 
-    public void setImageList(List<Bitmap> imageList) {
-        this.imageList = imageList;
-    }
-
-    public List<Bitmap> getImageList() {
-        return imageList;
-    }
-
-    public Bitmap getCurImage() {
-        return curImage;
+    public void setImages(int[] imageResources) {
+        this.imageResources = imageResources;
     }
 
     public RotationImage(Context context) {
@@ -112,7 +103,7 @@ public class RotationImage extends android.support.v7.widget.AppCompatImageView 
     private void nextImageOnTouchMove(float curX) {
         float distance = Math.abs(curX - startX);
             int count = (int)distance / NEXT_IMAGE_MOVE_DISTANCE;
-            int moveCount = count % imageList.size();
+            int moveCount = count % imageResources.length;
             if (curX > startX) {
                 moveRight(moveCount);
             } else {
@@ -121,41 +112,40 @@ public class RotationImage extends android.support.v7.widget.AppCompatImageView 
     }
 
     private void moveLeft(int moveCount) {
-        if (imageList == null || imageList.size() == 0) {
+        if (imageResources == null || imageResources.length == 0) {
             endRotation();
             return;
         }
-        int index = (startIndex + moveCount) % imageList.size();
-        setImageBitmap(imageList.get(index));
+        int index = (startIndex + moveCount) % imageResources.length;
+        setImageResource(imageResources[index]);
         curIndex = index;
     }
 
     private void moveRight(int moveCount) {
-        if (imageList == null || imageList.size() == 0) {
+        if (imageResources == null || imageResources.length == 0) {
             endRotation();
             return;
         }
         int index = startIndex - moveCount;
         if (index < 0) {
-            index = imageList.size() + index;
+            index = imageResources.length + index;
         }
-        setImageBitmap(imageList.get(index));
+        setImageResource(imageResources[index]);
         curIndex = index;
     }
 
     // 下一个
     private void nextImage() {
-        if (imageList == null || imageList.size() == 0) {
+        if (imageResources == null || imageResources.length == 0) {
             endRotation();
             return;
         }
 
         curIndex += 1;
-        if (curIndex >= imageList.size()) {
+        if (curIndex >= imageResources.length) {
             curIndex = 0;
         }
-        setImageBitmap(imageList.get(curIndex));
-        curImage = imageList.get(curIndex);
+        setImageResource(imageResources[curIndex]);
     }
 
     public interface OnTouchRotation {

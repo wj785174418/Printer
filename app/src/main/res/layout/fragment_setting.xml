@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    android:id="@+id/layout_setting"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_setting"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,232 +11,744 @@
         android:id="@+id/dial_m"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:layout_marginLeft="@dimen/dp_16"
+        app:layout_constraintBottom_toTopOf="@+id/dial_s"
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/dial_s"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginLeft="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.example.mrx.printer.customView.DialView
         android:id="@+id/dial_s"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_8"
+        app:layout_constraintBottom_toTopOf="@+id/dial_c"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintLeft_toLeftOf="@+id/dial_m"
         app:layout_constraintRight_toRightOf="@+id/dial_m"
-        app:layout_constraintTop_toBottomOf="@+id/dial_m"
-        app:layout_constraintBottom_toTopOf="@+id/dial_c"/>
+        app:layout_constraintTop_toBottomOf="@+id/dial_m" />
 
     <com.example.mrx.printer.customView.DialView
         android:id="@+id/dial_c"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_8"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintLeft_toLeftOf="@+id/dial_m"
         app:layout_constraintRight_toRightOf="@+id/dial_m"
-        app:layout_constraintTop_toBottomOf="@+id/dial_s"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/dial_s" />
 
-    <com.example.mrx.printer.customView.MultipleProgress
-        android:id="@+id/feed_rate"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_fixed1"
-        app:layout_constraintLeft_toRightOf="@+id/dial_m"
-        app:layout_constraintRight_toLeftOf="@+id/flow_rate"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp" />
+        android:layout_marginEnd="@dimen/dp_8"
+        android:layout_marginStart="@dimen/dp_8"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/dial_m"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.example.mrx.printer.customView.MultipleProgress
-        android:id="@+id/flow_rate"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.example.mrx.printer.customView.MultipleProgress
+                android:id="@+id/feed_rate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_8"/>
+
+            <com.example.mrx.printer.customView.MultipleProgress
+                android:id="@+id/flow_rate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_8"/>
+
+            <com.example.mrx.printer.customView.MultipleProgress
+                android:id="@+id/speed_m_fan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_8"/>
+
+            <com.example.mrx.printer.customView.MultipleProgress
+                android:id="@+id/speed_s_fan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_8"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="Feed rate"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_smaller"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="Flow rate"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_smaller"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="M-Fan speed"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_smaller"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:text="S-Fan speed"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_smaller"
+                android:textAlignment="center"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_fixed2"
-        app:layout_constraintLeft_toRightOf="@+id/feed_rate"
-        app:layout_constraintRight_toLeftOf="@+id/speed_m_fan"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp" />
+        android:layout_marginEnd="@dimen/dp_16"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.example.mrx.printer.customView.MultipleProgress
-        android:id="@+id/speed_m_fan"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_fixed3"
-        app:layout_constraintLeft_toRightOf="@+id/flow_rate"
-        app:layout_constraintRight_toLeftOf="@+id/speed_s_fan"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4">
 
-    <com.example.mrx.printer.customView.MultipleProgress
-        android:id="@+id/speed_s_fan"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_fixed4"
-        app:layout_constraintLeft_toRightOf="@+id/speed_m_fan"
-        app:layout_constraintRight_toLeftOf="@+id/t_axis_x"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    <com.example.mrx.printer.customView.MultipleProgress
-        android:id="@+id/t_axis_x"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_fixed5"
-        app:layout_constraintLeft_toRightOf="@+id/speed_s_fan"
-        app:layout_constraintRight_toLeftOf="@+id/t_axis_y"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Instantaneous voltage:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"/>
 
-    <com.example.mrx.printer.customView.MultipleProgress
-        android:id="@+id/t_axis_y"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_fixed6"
-        app:layout_constraintLeft_toRightOf="@+id/t_axis_x"
-        app:layout_constraintRight_toLeftOf="@+id/t_pcba"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Instantaneous current:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"/>
 
-    <com.example.mrx.printer.customView.MultipleProgress
-        android:id="@+id/t_pcba"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_fixed7"
-        app:layout_constraintLeft_toRightOf="@+id/t_axis_y"
-        app:layout_constraintRight_toLeftOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Instantaneous power:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"/>
 
-    <com.example.mrx.printer.customView.MultipleProgress
-        android:id="@+id/textView8"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/text_fixed7"
-        app:layout_constraintLeft_toRightOf="@+id/t_pcba"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Total power consumption:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"/>
 
-    <TextView
-        android:id="@+id/text_fixed1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feed rate"
-        android:textAlignment="center"
-        android:textColor="@color/red"
-        android:textSize="12sp"
-        app:layout_constraintLeft_toLeftOf="@+id/feed_rate"
-        app:layout_constraintRight_toRightOf="@+id/feed_rate"
-        app:layout_constraintTop_toBottomOf="@+id/feed_rate"
-        app:layout_constraintBottom_toBottomOf="parent" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_fixed2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Flow rate"
-        android:textAlignment="center"
-        android:textColor="@color/red"
-        android:textSize="12sp"
-        app:layout_constraintLeft_toLeftOf="@+id/flow_rate"
-        app:layout_constraintRight_toRightOf="@+id/flow_rate"
-        app:layout_constraintTop_toBottomOf="@+id/flow_rate"
-        app:layout_constraintBottom_toBottomOf="parent" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_fixed3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="M-Fan speed"
-        android:textAlignment="center"
-        android:textColor="@color/red"
-        android:textSize="12sp"
-        app:layout_constraintLeft_toLeftOf="@+id/speed_m_fan"
-        app:layout_constraintRight_toRightOf="@+id/speed_m_fan"
-        app:layout_constraintTop_toBottomOf="@+id/speed_m_fan"
-        app:layout_constraintBottom_toBottomOf="parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="200.80V"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"/>
 
-    <TextView
-        android:id="@+id/text_fixed4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="S-Fan speed"
-        android:textAlignment="center"
-        android:textColor="@color/red"
-        android:textSize="12sp"
-        app:layout_constraintLeft_toLeftOf="@+id/speed_s_fan"
-        app:layout_constraintRight_toRightOf="@+id/speed_s_fan"
-        app:layout_constraintTop_toBottomOf="@+id/speed_s_fan"
-        app:layout_constraintBottom_toBottomOf="parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="5.12A"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"/>
 
-    <TextView
-        android:id="@+id/text_fixed5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="T- Xaxis"
-        android:textAlignment="center"
-        android:textColor="@color/red"
-        android:textSize="12sp"
-        app:layout_constraintLeft_toLeftOf="@+id/t_axis_x"
-        app:layout_constraintRight_toRightOf="@+id/t_axis_x"
-        app:layout_constraintTop_toBottomOf="@+id/t_axis_x"
-        app:layout_constraintBottom_toBottomOf="parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="549.00W"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"/>
 
-    <TextView
-        android:id="@+id/text_fixed6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="T- Yaxis"
-        android:textAlignment="center"
-        android:textColor="@color/red"
-        android:textSize="12sp"
-        app:layout_constraintLeft_toLeftOf="@+id/t_axis_y"
-        app:layout_constraintRight_toRightOf="@+id/t_axis_y"
-        app:layout_constraintTop_toBottomOf="@+id/t_axis_y"
-        app:layout_constraintBottom_toBottomOf="parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="14.361KW-H"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"/>
 
-    <TextView
-        android:id="@+id/text_fixed7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="T- PCBA"
-        android:textAlignment="center"
-        android:textColor="@color/red"
-        android:textSize="12sp"
-        app:layout_constraintLeft_toLeftOf="@+id/t_pcba"
-        app:layout_constraintRight_toRightOf="@+id/t_pcba"
-        app:layout_constraintTop_toBottomOf="@+id/t_pcba"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+            </LinearLayout>
 
-    <View
-        android:id="@+id/inputView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="T-M Throat:"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                        <TextView
+                            android:layout_marginLeft="@dimen/dp_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="45℃"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="T-S Throat:"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                        <TextView
+                            android:layout_marginLeft="@dimen/dp_7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="45℃"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="T-X:"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                        <TextView
+                            android:layout_marginLeft="@dimen/dp_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="45℃"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="T-Y:"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                        <TextView
+                            android:layout_marginLeft="@dimen/dp_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="45℃"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="T-PCBA:"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="T-Mos:"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="T-Plate:"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="T-Outlet:"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dp_6">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="35℃"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="35℃"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="35℃"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="35℃"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fs_normal"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                
+            </FrameLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Filament humidity:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"/>
+
+                <TextView
+                    android:layout_marginLeft="@dimen/dp_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="20%"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/dp_2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Dehumidification status:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fs_normal"
+                    android:gravity="center"/>
+
+                <ImageView
+                    android:layout_marginTop="@dimen/dp_1"
+                    android:layout_marginLeft="@dimen/dp_6"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/indicator_light_1"
+                    android:scaleType="fitCenter"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp_16">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Door-Status:"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/fs_normal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="M1 IN:"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/fs_normal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="M1 OUT:"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/fs_normal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="M2 IN:"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/fs_normal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="M2 OUT:"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/fs_normal"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/indicator_light_1"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/indicator_light_1"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/indicator_light_1"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/indicator_light_1"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/indicator_light_1"
+                        android:scaleType="fitCenter"/>
+
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/dp_16">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/fs_normal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="S1 IN:"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/fs_normal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="S1 OUT:"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/fs_normal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="S2 IN:"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/fs_normal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="S2 OUT:"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/fs_normal"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/indicator_light_1"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/indicator_light_1"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/indicator_light_1"
+                        android:scaleType="fitCenter"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/indicator_light_1"
+                        android:scaleType="fitCenter"/>
+
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:text="  Export log  "
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:background="@drawable/touch_bg_btn_export_log">
+
+        </Button>
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>

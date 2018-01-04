@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/horizontal_100"
-        app:layout_constraintGuide_percent="0.92"
+        app:layout_constraintGuide_percent="0.95"
         android:orientation="horizontal" />
 
 
@@ -29,5 +29,88 @@
         app:layout_constraintBottom_toBottomOf="@id/horizontal_100"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/environment_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_0"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:text="环境温度：28℃"
+        android:textSize="@dimen/fs_bigger"
+        android:textColor="@android:color/black"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/wifi_state"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/wifi_state_1" />
+
+        <TextView
+            android:id="@+id/text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/fs_bigger"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"/>
+
+        <ImageView
+            android:id="@+id/battery_state"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp_10"
+            android:scaleType="fitCenter"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_pager_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <com.example.mrx.printer.customView.InputView
+        android:id="@+id/input_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="gone"
+        />
+
+    <com.example.mrx.printer.customView.ParamsSetting
+        android:id="@+id/params_setting"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:alpha="0"
+        android:visibility="gone"/>
 
 </android.support.constraint.ConstraintLayout>

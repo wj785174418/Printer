@@ -19,16 +19,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:foreground="@drawable/touch_fg"/>
+            android:background="@android:color/transparent"/>
 
         <Button
             android:id="@+id/end"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:foreground="@drawable/touch_fg"/>
+            android:background="@android:color/transparent"/>
     </LinearLayout>
 
 </FrameLayout>

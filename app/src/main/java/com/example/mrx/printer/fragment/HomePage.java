@@ -1,8 +1,16 @@
 package com.example.mrx.printer.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,8 +23,12 @@ import com.blankj.utilcode.util.LogUtils;
 import com.example.mrx.printer.R;
 import com.example.mrx.printer.activity.MainActivity;
 import com.example.mrx.printer.customView.DialView;
+import com.example.mrx.printer.customView.InputView;
 import com.example.mrx.printer.customView.RotationImage;
+import com.example.mrx.printer.model.Printer;
 import com.example.mrx.printer.util.MyApplication;
+import com.example.mrx.printer.util.StlUtil.STLReader;
+import com.example.mrx.printer.util.StlUtil.STLRenderer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +37,21 @@ import java.util.List;
  * Created by Administrator on 2017/9/15.
  */
 
-public class HomePage extends Fragment {
+public class HomePage extends Fragment implements View.OnClickListener{
+
+    private static final int STL_WHAT = 10010;
+
+    private final BroadcastReceiver homePageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals(Printer.ACTION_PRINT_PAUSE)) {
+                btnPause.setBackgroundResource(R.drawable.touch_bg_btn_start);
+            } else if (action.equals(Printer.ACTION_PRINT_PLAY)) {
+                btnPause.setBackgroundResource(R.drawable.touch_bg_btn_pause);
+            }
+        }
+    };
 
     private View view;
 
@@ -37,8 +63,43 @@ public class HomePage extends Fragment {
     Button btnStop;
     Button btnPause;
     Button btnKey;
+    Button btnLighting;
 
-    RotationImage rotationImage;
+    //STL  绘制3D模型相关
+    private boolean supportsEs2;
+    private GLSurfaceView glView;
+    private float rotateDegreen = 0;
+    private STLRenderer stlRenderer;
+
+    private Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            if (msg.what == STL_WHAT) {
+                rotateDegreen += 5;
+                rotate(rotateDegreen);
+                handler.sendEmptyMessageDelayed(STL_WHAT, 100);
+            }
+            return true;
+        }
+    });
+
+    public void rotate(float degree) {
+        stlRenderer.rotate(degree);
+        glView.invalidate();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setFilter();
+    }
+
+    private void setFilter() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Printer.ACTION_PRINT_PAUSE);
+        filter.addAction(Printer.ACTION_PRINT_PLAY);
+        MyApplication.getContext().registerReceiver(homePageReceiver, filter);
+    }
 
     @Nullable
     @Override
@@ -65,66 +126,100 @@ public class HomePage extends Fragment {
             btnStop = (Button) view.findViewById(R.id.btn_stop);
             btnPause = (Button) view.findViewById(R.id.btn_pause);
             btnKey = (Button) view.findViewById(R.id.btn_key);
+            btnLighting = (Button) view.findViewById(R.id.btn_lighting);
 
-            dial_m.updateValue(100, 300);
-            dial_s.updateValue(100, 300);
-            dial_c.updateValue(100, 300);
-            dial_t.updateValue(100, 300);
+            dial_m.updateValue(80, 300);
+            dial_s.updateValue(120, 300);
+            dial_c.updateValue(160, 300);
+            dial_t.updateValue(200, 300);
 
-            rotationImage = view.findViewById(R.id.rotation_image);
+            dial_t.setClickable(false);
 
-            // 资源图片集合
-            int[] srcs = new int[] { R.drawable.p52, R.drawable.p51,
-                R.drawable.p50, R.drawable.p49, R.drawable.p48, R.drawable.p47,
-                    R.drawable.p46, R.drawable.p45, R.drawable.p44, R.drawable.p43,
-                    R.drawable.p42, R.drawable.p41, R.drawable.p40, R.drawable.p39,
-                    R.drawable.p38, R.drawable.p37, R.drawable.p36, R.drawable.p35,
-                    R.drawable.p34, R.drawable.p33, R.drawable.p32, R.drawable.p31,
-                    R.drawable.p30, R.drawable.p29, R.drawable.p28, R.drawable.p27,
-                    R.drawable.p26, R.drawable.p25, R.drawable.p24, R.drawable.p23,
-                    R.drawable.p22, R.drawable.p21, R.drawable.p20, R.drawable.p19,
-                    R.drawable.p18, R.drawable.p17, R.drawable.p16, R.drawable.p15,
-                    R.drawable.p14, R.drawable.p13, R.drawable.p12, R.drawable.p11,
-                    R.drawable.p10, R.drawable.p9, R.drawable.p8, R.drawable.p7,
-                    R.drawable.p6, R.drawable.p5, R.drawable.p4, R.drawable.p3,
-                    R.drawable.p2, R.drawable.p1 };
+            dial_m.setOnClickListener(this);
+            dial_s.setOnClickListener(this);
+            dial_c.setOnClickListener(this);
 
-            List<Bitmap> bitmapList = new ArrayList<>();
-            for (int src : srcs) {
-                Bitmap bitmap = BitmapFactory.decodeResource(MyApplication.getContext().getResources(), src);
-                bitmapList.add(bitmap);
-            }
+            //按钮点击
+            btnKey.setOnClickListener((MainActivity)getActivity());
+            btnPause.setOnClickListener((MainActivity)getActivity());
+            btnStop.setOnClickListener((MainActivity)getActivity());
+            btnLighting.setOnClickListener((MainActivity)getActivity());
 
-            rotationImage.setImageList(bitmapList);
-            rotationImage.setOnTouchRotation(new RotationImage.OnTouchRotation() {
-                @Override
-                public void onTouchDown() {
-                    MainActivity activity = (MainActivity) getActivity();
-                    activity.setViewPagerScrollable(false);
-                }
-
-                @Override
-                public void onTouchEnd() {
-                    MainActivity activity = (MainActivity) getActivity();
-                    activity.setViewPagerScrollable(true);
-                }
-            });
+            glView = (GLSurfaceView) view.findViewById(R.id.glView);
+            stlRenderer = new STLRenderer(MyApplication.getContext());
+            glView.setRenderer(stlRenderer);
         }
-        rotationImage.startRotation();
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (glView != null) {
+            glView.onResume();
+        }
+        handler.sendEmptyMessageDelayed(STL_WHAT, 100);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        handler.removeMessages(STL_WHAT);
+        if (glView != null) {
+            glView.onPause();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        rotationImage.endRotation();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
     public void onDestroy() {
+        MyApplication.getContext().unregisterReceiver(homePageReceiver);
         super.onDestroy();
-        if (rotationImage != null) {
-            rotationImage.getImageList().clear();
+    }
+
+    @Override
+    public void onClick(View v) {
+        v.setEnabled(false);
+        final MainActivity activity = (MainActivity) getActivity();
+        switch (v.getId()) {
+            case R.id.dial_m:
+            case R.id.dial_s:
+            case R.id.dial_c:
+                activity.getInputView().setOnInputEnded(new InputView.OnInputEnded() {
+                    @Override
+                    public void onClickedCancel() {
+                        activity.showInputView(false);
+                    }
+
+                    @Override
+                    public void onClickedCommit(int value) {
+                        activity.showInputView(false);
+                    }
+                });
+                activity.showInputView(true);
+                break;
         }
+        v.setEnabled(true);
     }
 }

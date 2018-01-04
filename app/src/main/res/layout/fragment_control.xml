@@ -1,352 +1,885 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <android.support.constraint.Guideline
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/horizontal_76"
-        app:layout_constraintGuide_percent="0.76"
-        android:orientation="horizontal" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.72" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/horizontal_86"
-        app:layout_constraintGuide_percent="0.86"
-        android:orientation="horizontal" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.82" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/horizontal_100"
-        app:layout_constraintGuide_percent="1"
-        android:orientation="horizontal" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/vertical_45"
-        app:layout_constraintGuide_percent="0.45"
-        android:orientation="vertical" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/view_square"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_76"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="@id/vertical_45"
-        app:layout_constraintBottom_toBottomOf="@id/horizontal_76"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <android.support.constraint.Guideline
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/vertical_428"
-            app:layout_constraintGuide_percent="0.428"
-            android:orientation="vertical" />
-
-        <android.support.constraint.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.428" />
+
+        <android.support.constraint.Guideline
             android:id="@+id/vertical_571"
-            app:layout_constraintGuide_percent="0.571"
-            android:orientation="vertical" />
-
-        <android.support.constraint.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.571" />
+
+        <android.support.constraint.Guideline
             android:id="@+id/horizontal_428"
-            app:layout_constraintGuide_percent="0.428"
-            android:orientation="horizontal" />
-
-        <android.support.constraint.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.428" />
+
+        <android.support.constraint.Guideline
             android:id="@+id/horizontal_571"
-            app:layout_constraintGuide_percent="0.571"
-            android:orientation="horizontal" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.571" />
 
         <com.example.mrx.printer.customView.ButtonControl
             android:id="@+id/x_left"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/horizontal_571"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="@id/vertical_428"
-            app:layout_constraintTop_toTopOf="@id/horizontal_428"
-            app:layout_constraintBottom_toBottomOf="@id/horizontal_571"/>
+            app:layout_constraintTop_toTopOf="@id/horizontal_428" />
 
-        <com.example.mrx.printer.customView.ButtonControl
-            android:id="@+id/x_right"
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintLeft_toLeftOf="@id/vertical_571"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/horizontal_428"
-            app:layout_constraintBottom_toBottomOf="@id/horizontal_571"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/x_left"
+            app:layout_constraintLeft_toLeftOf="@id/x_left"
+            app:layout_constraintRight_toRightOf="@id/x_left">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="-10"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="-1"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+        </LinearLayout>
+
 
         <com.example.mrx.printer.customView.ButtonControl
             android:id="@+id/y_top"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/horizontal_428"
             app:layout_constraintLeft_toLeftOf="@id/vertical_428"
             app:layout_constraintRight_toRightOf="@id/vertical_571"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/horizontal_428"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.example.mrx.printer.customView.ButtonControl
             android:id="@+id/y_bottom"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/vertical_428"
             app:layout_constraintRight_toRightOf="@id/vertical_571"
-            app:layout_constraintTop_toTopOf="@id/horizontal_571"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="@id/horizontal_571" />
 
-        <TextView
+        <Button
             android:id="@+id/text_xy"
-            android:text="0/0"
-            android:textColor="@color/red"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textSize="12sp"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="@drawable/touch_bg_btn_control"
+            android:gravity="center"
+            android:text="0/0"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:textSize="@dimen/fs_bigger"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_571"
             app:layout_constraintLeft_toLeftOf="@id/vertical_428"
             app:layout_constraintRight_toRightOf="@id/vertical_571"
-            app:layout_constraintTop_toBottomOf="@id/horizontal_428"
-            app:layout_constraintBottom_toTopOf="@id/horizontal_571"
-            />
+            app:layout_constraintTop_toBottomOf="@id/horizontal_428" />
+
+        <com.example.mrx.printer.customView.ButtonControl
+            android:id="@+id/x_right"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/horizontal_571"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_571"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/horizontal_428"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/x_right"
+            app:layout_constraintLeft_toLeftOf="@id/x_right"
+            app:layout_constraintRight_toRightOf="@id/x_right">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="10"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+        </LinearLayout>
 
 
     </android.support.constraint.ConstraintLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:text="X"
+        android:textColor="@color/red"
+        android:textSize="@dimen/fs_normal"
+        app:layout_constraintBottom_toBottomOf="@id/view_square"
+        app:layout_constraintLeft_toRightOf="@id/view_square"
+        app:layout_constraintTop_toTopOf="@id/view_square" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Y"
+        android:textColor="@color/red"
+        android:textSize="@dimen/fs_normal"
+        app:layout_constraintLeft_toLeftOf="@id/view_square"
+        app:layout_constraintRight_toRightOf="@id/view_square"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_76" />
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/view_square"
         app:layout_constraintLeft_toLeftOf="@id/vertical_45"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/view_square"
-        app:layout_constraintBottom_toBottomOf="@id/view_square">
+        app:layout_constraintTop_toTopOf="@id/view_square">
 
         <android.support.constraint.Guideline
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/horizontal_428_r"
-            app:layout_constraintGuide_percent="0.428"
-            android:orientation="horizontal" />
-
-        <android.support.constraint.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.428" />
+
+        <android.support.constraint.Guideline
             android:id="@+id/horizontal_571_r"
-            app:layout_constraintGuide_percent="0.571"
-            android:orientation="horizontal" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.571" />
 
         <com.example.mrx.printer.customView.ButtonControl
             android:id="@+id/z_top"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="W,1:3"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/horizontal_428_r"
+            app:layout_constraintDimensionRatio="W,1:3"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/em_top"/>
+            app:layout_constraintRight_toLeftOf="@+id/em_top"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_z"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="0"
-            android:textColor="@color/red"
+            android:layout_marginLeft="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/z_top"
+            app:layout_constraintLeft_toRightOf="@id/z_top"
+            app:layout_constraintTop_toTopOf="@id/z_top">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-10"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-1"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_z"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/touch_bg_btn_control"
             android:gravity="center"
+            android:text="0"
             android:textAlignment="center"
-            android:textSize="12sp"
-            app:layout_constraintTop_toTopOf="@id/horizontal_428_r"
+            android:textColor="@color/red"
+            android:textSize="@dimen/fs_bigger"
             app:layout_constraintBottom_toBottomOf="@id/horizontal_571_r"
             app:layout_constraintLeft_toLeftOf="@id/z_top"
-            app:layout_constraintRight_toRightOf="@id/z_top"/>
+            app:layout_constraintRight_toRightOf="@id/z_top"
+            app:layout_constraintTop_toTopOf="@id/horizontal_428_r" />
 
         <com.example.mrx.printer.customView.ButtonControl
             android:id="@+id/em_top"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="W,1:3"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/horizontal_428_r"
+            app:layout_constraintDimensionRatio="W,1:3"
             app:layout_constraintLeft_toRightOf="@id/z_top"
-            app:layout_constraintRight_toLeftOf="@+id/es_top"/>
+            app:layout_constraintRight_toLeftOf="@+id/es_top"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginLeft="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/em_top"
+            app:layout_constraintLeft_toRightOf="@id/em_top"
+            app:layout_constraintTop_toTopOf="@id/em_top">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Unload"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-5"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/text_em_top"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="99℃"
-            android:textColor="@color/red"
             android:gravity="center"
+            android:text="99℃"
             android:textAlignment="center"
-            android:textSize="12sp"
-            app:layout_constraintTop_toTopOf="@id/horizontal_428_r"
+            android:textColor="@color/red"
+            android:textSize="@dimen/fs_bigger"
             app:layout_constraintBottom_toTopOf="@+id/mid_line_l"
             app:layout_constraintLeft_toLeftOf="@id/em_top"
-            app:layout_constraintRight_toRightOf="@id/em_top"/>
+            app:layout_constraintRight_toRightOf="@id/em_top"
+            app:layout_constraintTop_toTopOf="@id/horizontal_428_r" />
 
         <View
             android:id="@+id/mid_line_l"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/red"
+            app:layout_constraintBottom_toTopOf="@+id/text_em_bottom"
             app:layout_constraintLeft_toLeftOf="@id/em_top"
             app:layout_constraintRight_toRightOf="@id/em_top"
-            app:layout_constraintTop_toBottomOf="@id/text_em_top"
-            app:layout_constraintBottom_toTopOf="@+id/text_em_bottom"/>
+            app:layout_constraintTop_toBottomOf="@id/text_em_top" />
 
         <TextView
             android:id="@+id/text_em_bottom"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="320℃"
-            android:textColor="@color/red"
             android:gravity="center"
+            android:text="320℃"
             android:textAlignment="center"
-            android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@id/mid_line_l"
+            android:textColor="@color/red"
+            android:textSize="@dimen/fs_bigger"
             app:layout_constraintBottom_toTopOf="@id/horizontal_571_r"
             app:layout_constraintLeft_toLeftOf="@id/em_top"
-            app:layout_constraintRight_toRightOf="@id/em_top"/>
+            app:layout_constraintRight_toRightOf="@id/em_top"
+            app:layout_constraintTop_toBottomOf="@id/mid_line_l" />
 
         <com.example.mrx.printer.customView.ButtonControl
             android:id="@+id/es_top"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="W,1:3"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/horizontal_428_r"
+            app:layout_constraintDimensionRatio="W,1:3"
             app:layout_constraintLeft_toRightOf="@id/em_top"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginLeft="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/es_top"
+            app:layout_constraintLeft_toRightOf="@id/es_top"
+            app:layout_constraintTop_toTopOf="@id/es_top">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Unload"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-5"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/text_es_top"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="99℃"
-            android:textColor="@color/red"
             android:gravity="center"
+            android:text="99℃"
             android:textAlignment="center"
-            android:textSize="12sp"
-            app:layout_constraintTop_toTopOf="@id/horizontal_428_r"
+            android:textColor="@color/red"
+            android:textSize="@dimen/fs_bigger"
             app:layout_constraintBottom_toTopOf="@+id/mid_line_r"
             app:layout_constraintLeft_toLeftOf="@id/es_top"
-            app:layout_constraintRight_toRightOf="@id/es_top"/>
+            app:layout_constraintRight_toRightOf="@id/es_top"
+            app:layout_constraintTop_toTopOf="@id/horizontal_428_r" />
 
         <View
             android:id="@+id/mid_line_r"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="@color/red"
+            app:layout_constraintBottom_toTopOf="@+id/text_es_bottom"
             app:layout_constraintLeft_toLeftOf="@id/es_top"
             app:layout_constraintRight_toRightOf="@id/es_top"
-            app:layout_constraintTop_toBottomOf="@id/text_es_top"
-            app:layout_constraintBottom_toTopOf="@+id/text_es_bottom"/>
+            app:layout_constraintTop_toBottomOf="@id/text_es_top" />
 
         <TextView
             android:id="@+id/text_es_bottom"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="320℃"
-            android:textColor="@color/red"
             android:gravity="center"
+            android:text="320℃"
             android:textAlignment="center"
-            android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@id/mid_line_r"
+            android:textColor="@color/red"
+            android:textSize="@dimen/fs_bigger"
             app:layout_constraintBottom_toTopOf="@id/horizontal_571_r"
             app:layout_constraintLeft_toLeftOf="@id/es_top"
-            app:layout_constraintRight_toRightOf="@id/es_top"/>
+            app:layout_constraintRight_toRightOf="@id/es_top"
+            app:layout_constraintTop_toBottomOf="@id/mid_line_r" />
 
         <com.example.mrx.printer.customView.ButtonControl
             android:id="@+id/z_bottom"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="W,1:3"
-            app:layout_constraintTop_toTopOf="@id/horizontal_571_r"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="W,1:3"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/em_bottom"/>
+            app:layout_constraintRight_toLeftOf="@+id/em_bottom"
+            app:layout_constraintTop_toTopOf="@id/horizontal_571_r" />
 
-        <com.example.mrx.printer.customView.ButtonControl
-            android:id="@+id/em_bottom"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="W,1:3"
-            app:layout_constraintTop_toTopOf="@id/horizontal_571_r"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/z_bottom"
             app:layout_constraintLeft_toRightOf="@id/z_bottom"
-            app:layout_constraintRight_toLeftOf="@+id/es_bottom"/>
+            app:layout_constraintTop_toTopOf="@id/z_bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="10"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginLeft="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/em_bottom"
+            app:layout_constraintLeft_toRightOf="@id/em_bottom"
+            app:layout_constraintTop_toTopOf="@id/em_bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="5"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Load"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+        </LinearLayout>
 
         <com.example.mrx.printer.customView.ButtonControl
             android:id="@+id/es_bottom"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="W,1:3"
-            app:layout_constraintTop_toTopOf="@id/horizontal_571_r"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="W,1:3"
             app:layout_constraintLeft_toRightOf="@id/em_bottom"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/horizontal_571_r" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginLeft="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/es_bottom"
+            app:layout_constraintLeft_toRightOf="@id/es_bottom"
+            app:layout_constraintTop_toTopOf="@id/es_bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="5"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Load"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/fs_normal"/>
+
+        </LinearLayout>
+
+        <com.example.mrx.printer.customView.ButtonControl
+            android:id="@+id/em_bottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="W,1:3"
+            app:layout_constraintLeft_toRightOf="@id/z_bottom"
+            app:layout_constraintRight_toLeftOf="@+id/es_bottom"
+            app:layout_constraintTop_toTopOf="@id/horizontal_571_r"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btn_es_temperature"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toTopOf="@id/es_bottom"
+            app:layout_constraintLeft_toLeftOf="@id/es_top"
+            app:layout_constraintRight_toRightOf="@id/es_top"
+            app:layout_constraintTop_toBottomOf="@id/es_top" />
+
+        <Button
+            android:id="@+id/btn_em_temperature"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toTopOf="@id/em_bottom"
+            app:layout_constraintLeft_toLeftOf="@id/em_top"
+            app:layout_constraintRight_toRightOf="@id/em_top"
+            app:layout_constraintTop_toBottomOf="@id/em_top" />
 
     </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/text_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Z"
+        android:textColor="@color/red"
+        android:textSize="@dimen/fs_normal"
+        app:layout_constraintLeft_toRightOf="@id/vertical_45"
+        app:layout_constraintRight_toLeftOf="@+id/text_em"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_76" />
+
+    <TextView
+        android:id="@+id/text_em"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EM"
+        android:textColor="@color/red"
+        android:textSize="@dimen/fs_normal"
+        app:layout_constraintLeft_toRightOf="@+id/text_z"
+        app:layout_constraintRight_toLeftOf="@+id/text_es"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_76" />
+
+    <TextView
+        android:id="@+id/text_es"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ES"
+        android:textColor="@color/red"
+        android:textSize="@dimen/fs_normal"
+        app:layout_constraintLeft_toRightOf="@id/text_em"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_76" />
 
     <Button
         android:id="@+id/btn_stop"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/touch_bg_btn_stop"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_100"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/btn_pause"
+        app:layout_constraintEnd_toStartOf="@+id/btn_motor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_pause"
         app:layout_constraintTop_toBottomOf="@id/horizontal_86"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_100"/>
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btn_pause"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/touch_bg_btn_pause"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_100"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintLeft_toRightOf="@id/btn_stop"
-        app:layout_constraintRight_toLeftOf="@+id/btn_key"
+        app:layout_constraintEnd_toStartOf="@+id/btn_stop"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_lighting"
         app:layout_constraintTop_toBottomOf="@id/horizontal_86"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_100"/>
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btn_key"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/touch_bg_btn_key"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_100"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintLeft_toRightOf="@id/btn_pause"
-        app:layout_constraintRight_toLeftOf="@+id/btn_motor"
+        app:layout_constraintEnd_toStartOf="@+id/btn_lighting"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/horizontal_86"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_100"/>
+        app:layout_constraintVertical_bias="1.0" />
 
-    <ImageButton
+    <Button
         android:id="@+id/btn_motor"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/btn_motor"
-        android:scaleType="centerInside"
-        android:background="@drawable/touch_bg"
-        android:foreground="@drawable/touch_fg"
+        android:background="@drawable/touch_bg_btn_motor"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_100"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintLeft_toRightOf="@id/btn_key"
-        app:layout_constraintRight_toLeftOf="@id/vertical_45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_stop"
         app:layout_constraintTop_toBottomOf="@id/horizontal_86"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_100"/>
+        app:layout_constraintVertical_bias="1.0" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50093806" />
+
+    <Button
+        android:id="@+id/btn_lighting"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/touch_bg_btn_lighting"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_100"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/btn_pause"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_key"
+        app:layout_constraintTop_toTopOf="@+id/horizontal_86"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_86"
+        android:background="@drawable/bg_corner_setting">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_4">
+
+            <TextView
+                android:id="@+id/text_top_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="All"
+                android:textSize="@dimen/fs_normal"
+                android:textColor="@color/red"
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@id/text_top_all"
+                app:layout_constraintBottom_toTopOf="@+id/text_bottom_all"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@drawable/touch_bg_btn_preheat_all"/>
+
+            <TextView
+                android:id="@+id/text_bottom_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Preheat"
+                android:textSize="@dimen/fs_extra_small"
+                android:textColor="@color/red"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_4">
+
+            <TextView
+                android:id="@+id/text_top_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="C"
+                android:textSize="@dimen/fs_normal"
+                android:textColor="@color/red"
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@id/text_top_c"
+                app:layout_constraintBottom_toTopOf="@+id/text_bottom_c"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@drawable/touch_bg_btn_preheat_part"/>
+
+            <TextView
+                android:id="@+id/text_bottom_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Chamber"
+                android:textSize="@dimen/fs_extra_small"
+                android:textColor="@color/red"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_4">
+
+            <TextView
+                android:id="@+id/text_top_m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="M"
+                android:textSize="@dimen/fs_normal"
+                android:textColor="@color/red"
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@id/text_top_m"
+                app:layout_constraintBottom_toTopOf="@+id/text_bottom_m"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@drawable/touch_bg_btn_preheat_part"/>
+
+            <TextView
+                android:id="@+id/text_bottom_m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Extruder"
+                android:textSize="@dimen/fs_extra_small"
+                android:textColor="@color/red"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_4">
+
+            <TextView
+                android:id="@+id/text_top_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="S"
+                android:textSize="@dimen/fs_normal"
+                android:textColor="@color/red"
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@id/text_top_s"
+                app:layout_constraintBottom_toTopOf="@+id/text_bottom_s"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@drawable/touch_bg_btn_preheat_part"/>
+
+            <TextView
+                android:id="@+id/text_bottom_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Extruder"
+                android:textSize="@dimen/fs_extra_small"
+                android:textColor="@color/red"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

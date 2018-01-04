@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fs_extra_small">@dimen/sp_6</dimen>
+    <dimen name="fs_smaller">@dimen/sp_8</dimen>
+    <dimen name="fs_normal">@dimen/sp_10</dimen>
+    <dimen name="fs_bigger">@dimen/sp_12</dimen>
+    <dimen name="fs_outsize">@dimen/sp_14</dimen>
+</resources>

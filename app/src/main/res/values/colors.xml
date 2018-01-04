@@ -9,4 +9,6 @@
     <color name="grey">#bebebe</color>
     <color name="dark_gray">#a9a9a9</color>
     <color name="black_alpha_03">#4b000000</color>
+    <color name="params_setting_text">#505050</color>
+    <color name="input_text">#046eb8</color>
 </resources>

@@ -19,6 +19,9 @@ import com.example.mrx.printer.util.MyApplication;
 
 public class InputView extends ConstraintLayout implements View.OnClickListener{
 
+    private static final String INTEGER_REGEX = "\\d+([.]\\d+)?";
+    public static final int INPUT_ERROR = -1;
+
     private Button btn_0;
     private Button btn_1;
     private Button btn_2;
@@ -143,13 +146,21 @@ public class InputView extends ConstraintLayout implements View.OnClickListener{
                 if (this.onInputEnded != null) {
                     this.onInputEnded.onClickedCancel();
                     oldInput = "";
+                    this.onInputEnded = null;
                 }
                 break;
             case R.id.btn_commit:
                 if (this.onInputEnded != null) {
-                    int value = Integer.valueOf(oldInput);
+                    int value;
+                    if (!oldInput.matches(INTEGER_REGEX)) {
+                        value = INPUT_ERROR;
+                    } else {
+                        float v = Float.valueOf(oldInput);
+                        value = (int) v;
+                    }
                     this.onInputEnded.onClickedCommit(value);
                     oldInput = "";
+                    this.onInputEnded = null;
                 }
                 break;
             case R.id.btn_point:

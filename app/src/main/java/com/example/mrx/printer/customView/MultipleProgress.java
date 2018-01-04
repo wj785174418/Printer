@@ -23,7 +23,7 @@ public class MultipleProgress extends View {
     private static final int TOUCH_EVENT_TEXT = 0;
     private static final int TOUCH_EVENT_DRAG = 1;
 
-    private static final int INSET = ConvertUtils.dp2px(5);
+
 
     private static final int COLOR_BG = Color.rgb(1, 52 ,83);
     private static final int COLOR_ERROR = Color.RED;
@@ -34,6 +34,8 @@ public class MultipleProgress extends View {
 
     //数值字体大小
     private static final int TEXT_SIZE = ConvertUtils.sp2px(12);
+
+    private int inset;
 
     private float width;
     private float height;
@@ -60,6 +62,12 @@ public class MultipleProgress extends View {
     private Paint paint;
 
     private OnTouchEventEnded onTouchEventEnded;
+    //是否可以交互
+    private boolean isTouchable = true;
+
+    public void setTouchable(boolean touchable) {
+        isTouchable = touchable;
+    }
 
     public void update() {
         this.valueOfRange = this.maxValue - this.minValue;
@@ -137,6 +145,7 @@ public class MultipleProgress extends View {
         if (changed) {
             this.width = right - left;
             this.height = bottom - top;
+            this.inset = (int) (width / 4);
             updateRectText();
         }
     }
@@ -222,12 +231,12 @@ public class MultipleProgress extends View {
     }
 
     private RectF rectOfDraw(float min, float max) {
-        float height = this.height - 2 * INSET;
+        float height = this.height - 2 * inset;
 
         float left = this.width * 0.25f;
         float right = this.width * 0.75f;
-        float top = (this.maxValue - max) / this.valueOfRange * height + INSET ;
-        float bottom = this.height - (min - this.minValue) / this.valueOfRange * height - INSET;
+        float top = (this.maxValue - max) / this.valueOfRange * height + inset;
+        float bottom = this.height - (min - this.minValue) / this.valueOfRange * height - inset;
 
         return new RectF(left, top, right, bottom);
     }
@@ -273,6 +282,10 @@ public class MultipleProgress extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (!isTouchable) {
+            return true;
+        }
+
         int action = event.getAction();
         float x = event.getX();
         float y = event.getY();
@@ -334,9 +347,9 @@ public class MultipleProgress extends View {
         }
 
         //当前y所占值的高度
-        float currentHeight = this.height - INSET - y;
+        float currentHeight = this.height - inset - y;
         //所有值的高度
-        float totalHeight = this.height - 2 * INSET;
+        float totalHeight = this.height - 2 * inset;
 
         this.currentValue = this.minValue + currentHeight / totalHeight * this.valueOfRange;
         this.update();

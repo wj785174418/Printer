@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_alpha_03">
+    android:background="@color/black_alpha_03"
+    android:clickable="true">
 
 
     <android.support.constraint.Guideline
@@ -42,56 +43,64 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@+id/vertical_15"
         app:layout_constraintRight_toRightOf="@+id/vertical_85"
-        android:background="@drawable/bg_corner"/>
+        android:background="@drawable/bg_corner_input"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0"
+        />
 
     <Button
         android:id="@+id/btn_commit"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:text="确定"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_8"
+        android:background="@drawable/touch_bg_input_num"
+        android:text="✔"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/btn_cancel"
-        app:layout_constraintTop_toTopOf="@+id/horizontal_75"
-        app:layout_constraintVertical_bias="0.538"
         app:layout_constraintRight_toLeftOf="@+id/vertical_85"
-        android:layout_marginRight="8dp" />
+        app:layout_constraintTop_toTopOf="@+id/horizontal_75"
+        app:layout_constraintVertical_bias="0.538" />
 
     <Button
         android:id="@+id/btn_cancel"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:text="取消"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_8"
+        android:background="@drawable/touch_bg_input_num"
+        android:text="✘"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/vertical_15"
         app:layout_constraintRight_toLeftOf="@+id/btn_commit"
         app:layout_constraintTop_toTopOf="@+id/horizontal_75"
-        app:layout_constraintVertical_bias="0.538"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/vertical_15" />
+        app:layout_constraintVertical_bias="0.538" />
 
     <Button
         android:id="@+id/btn_7"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="7"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_75"
+        app:layout_constraintLeft_toLeftOf="@+id/vertical_15"
         app:layout_constraintRight_toLeftOf="@+id/btn_8"
-        app:layout_constraintTop_toTopOf="@+id/horizontal_50"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/vertical_15" />
+        app:layout_constraintTop_toTopOf="@+id/horizontal_50" />
 
     <Button
         android:id="@+id/btn_8"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="8"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_75"
         app:layout_constraintLeft_toRightOf="@+id/btn_7"
         app:layout_constraintRight_toLeftOf="@+id/btn_9"
@@ -99,11 +108,13 @@
 
     <Button
         android:id="@+id/btn_point"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="●"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_75"
         app:layout_constraintLeft_toRightOf="@+id/btn_0"
         app:layout_constraintRight_toLeftOf="@+id/btn_delete"
@@ -111,11 +122,13 @@
 
     <Button
         android:id="@+id/btn_0"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="0"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_75"
         app:layout_constraintLeft_toRightOf="@+id/btn_9"
         app:layout_constraintRight_toLeftOf="@+id/btn_point"
@@ -123,11 +136,13 @@
 
     <Button
         android:id="@+id/btn_9"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="9"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_75"
         app:layout_constraintLeft_toRightOf="@+id/btn_8"
         app:layout_constraintRight_toLeftOf="@+id/btn_0"
@@ -135,37 +150,41 @@
 
     <Button
         android:id="@+id/btn_delete"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="←"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_75"
         app:layout_constraintLeft_toRightOf="@+id/btn_point"
-        app:layout_constraintTop_toTopOf="@+id/horizontal_50"
         app:layout_constraintRight_toLeftOf="@+id/vertical_85"
-        android:layout_marginRight="8dp" />
+        app:layout_constraintTop_toTopOf="@+id/horizontal_50" />
 
     <Button
         android:id="@+id/btn_1"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="1"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_50"
+        app:layout_constraintLeft_toLeftOf="@+id/vertical_15"
         app:layout_constraintRight_toLeftOf="@+id/btn_2"
-        app:layout_constraintTop_toTopOf="@+id/horizontal_25"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/vertical_15" />
+        app:layout_constraintTop_toTopOf="@+id/horizontal_25" />
 
     <Button
         android:id="@+id/btn_2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="2"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_50"
         app:layout_constraintLeft_toRightOf="@+id/btn_1"
         app:layout_constraintRight_toLeftOf="@+id/btn_3"
@@ -173,11 +192,13 @@
 
     <Button
         android:id="@+id/btn_3"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="3"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_50"
         app:layout_constraintLeft_toRightOf="@+id/btn_2"
         app:layout_constraintRight_toLeftOf="@+id/btn_4"
@@ -185,11 +206,13 @@
 
     <Button
         android:id="@+id/btn_4"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="4"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_50"
         app:layout_constraintLeft_toRightOf="@+id/btn_3"
         app:layout_constraintRight_toLeftOf="@+id/btn_5"
@@ -197,11 +220,13 @@
 
     <Button
         android:id="@+id/btn_5"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="5"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_50"
         app:layout_constraintLeft_toRightOf="@+id/btn_4"
         app:layout_constraintRight_toLeftOf="@+id/btn_6"
@@ -209,55 +234,60 @@
 
     <Button
         android:id="@+id/btn_6"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_num"
         android:text="6"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_50"
         app:layout_constraintLeft_toRightOf="@+id/btn_5"
-        app:layout_constraintTop_toTopOf="@+id/horizontal_25"
         app:layout_constraintRight_toLeftOf="@+id/vertical_85"
-        android:layout_marginRight="8dp" />
+        app:layout_constraintTop_toTopOf="@+id/horizontal_25" />
 
     <Button
         android:id="@+id/btn_left"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_44"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_control"
         android:text="◀"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_25"
+        app:layout_constraintLeft_toLeftOf="@+id/vertical_15"
         app:layout_constraintRight_toLeftOf="@+id/input_text"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="@+id/vertical_15" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/input_text"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:textAlignment="center"
+        android:layout_width="@dimen/dp_180"
+        android:layout_height="@dimen/dp_44"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/input_input_bg"
         android:gravity="center"
-        app:layout_constraintRight_toLeftOf="@+id/btn_right"
+        android:textAlignment="center"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_24"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_25"
         app:layout_constraintLeft_toRightOf="@+id/btn_left"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/horizontal_25" />
+        app:layout_constraintRight_toLeftOf="@+id/btn_right"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_right"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_44"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/touch_bg_input_control"
         android:text="▶"
+        android:textColor="@color/input_text"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toTopOf="@+id/horizontal_25"
         app:layout_constraintLeft_toRightOf="@+id/input_text"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/vertical_85"
-        android:layout_marginRight="8dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"

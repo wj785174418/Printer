@@ -1,152 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <android.support.constraint.Guideline
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/vertical_8"
-        app:layout_constraintGuide_percent="0.08"
-        android:orientation="vertical" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/vertical_50"
-        app:layout_constraintGuide_percent="0.5"
-        android:orientation="vertical" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/vertical_60"
-        app:layout_constraintGuide_percent="0.6"
-        android:orientation="vertical" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/vertical_92"
-        app:layout_constraintGuide_percent="0.92"
-        android:orientation="vertical" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/horizontal_0"
-        app:layout_constraintGuide_percent="0.00"
-        android:orientation="horizontal" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.00" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/horizontal_100"
-        app:layout_constraintGuide_percent="1"
-        android:orientation="horizontal" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/horizontal_86"
-        app:layout_constraintGuide_percent="0.86"
-        android:orientation="horizontal" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.86" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/horizontal_20"
-        app:layout_constraintGuide_percent="0.20"
-        android:orientation="horizontal" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/bg_corner"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_20"
         app:layout_constraintLeft_toLeftOf="@id/vertical_8"
         app:layout_constraintRight_toRightOf="@id/vertical_92"
-        app:layout_constraintTop_toBottomOf="@id/horizontal_0"
-        app:layout_constraintBottom_toBottomOf="@id/horizontal_20"
-        android:background="@drawable/bg_corner">
+        app:layout_constraintTop_toBottomOf="@id/horizontal_0">
 
         <ImageButton
             android:id="@+id/btn_wifi"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_8"
             android:layout_weight="1"
-            android:src="@drawable/wifi"
-            android:scaleType="center"
             android:background="@drawable/touch_bg"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/wifi" />
 
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:background="@android:color/white" />
 
         <ImageButton
             android:id="@+id/btn_sd"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_8"
             android:layout_weight="1"
-            android:src="@drawable/sd_card"
-            android:scaleType="center"
-            android:padding="10dp"
             android:background="@drawable/touch_bg"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sd_card" />
 
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:background="@android:color/white" />
 
         <ImageButton
             android:id="@+id/btn_u"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_8"
             android:layout_weight="1"
-            android:src="@drawable/u_disk"
-            android:scaleType="center"
-            android:padding="10dp"
             android:background="@drawable/touch_bg"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/u_disk" />
 
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:background="@android:color/white" />
 
         <ImageButton
             android:id="@+id/btn_suspend"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_8"
             android:layout_weight="1"
-            android:src="@drawable/looper"
-            android:scaleType="center"
-            android:padding="10dp"
             android:background="@drawable/touch_bg"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/looper" />
 
     </LinearLayout>
 
@@ -155,106 +143,120 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/touch_bg_btn_stop"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_100"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintLeft_toLeftOf="@id/vertical_8"
-        app:layout_constraintRight_toLeftOf="@+id/btn_pause"
+        app:layout_constraintEnd_toStartOf="@+id/btn_motor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_lighting"
         app:layout_constraintTop_toBottomOf="@id/horizontal_86"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_100"/>
-
-    <Button
-        android:id="@+id/btn_pause"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/touch_bg_btn_pause"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintLeft_toRightOf="@id/btn_stop"
-        app:layout_constraintRight_toLeftOf="@+id/btn_key"
-        app:layout_constraintTop_toBottomOf="@id/horizontal_86"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_100"/>
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btn_key"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/touch_bg_btn_key"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_100"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintLeft_toRightOf="@id/btn_pause"
-        app:layout_constraintRight_toLeftOf="@+id/btn_motor"
+        app:layout_constraintEnd_toStartOf="@+id/btn_lighting"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/vertical_8"
         app:layout_constraintTop_toBottomOf="@id/horizontal_86"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_100"/>
+        app:layout_constraintVertical_bias="1.0" />
 
-    <ImageButton
+    <Button
         android:id="@+id/btn_motor"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/btn_motor"
-        android:scaleType="centerInside"
-        android:background="@drawable/touch_bg"
-        android:foreground="@drawable/touch_fg"
+        android:background="@drawable/touch_bg_btn_motor"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_100"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintLeft_toRightOf="@id/btn_key"
-        app:layout_constraintRight_toLeftOf="@id/vertical_50"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_50"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_stop"
         app:layout_constraintTop_toBottomOf="@id/horizontal_86"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_100"/>
+        app:layout_constraintVertical_bias="1.0" />
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/file_preview"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_86"
         app:layout_constraintLeft_toLeftOf="@id/vertical_8"
         app:layout_constraintRight_toLeftOf="@id/vertical_60"
-        app:layout_constraintTop_toBottomOf="@id/horizontal_20"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_86"
-        />
+        app:layout_constraintTop_toBottomOf="@id/horizontal_20" />
 
     <android.support.constraint.Guideline
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/horizontal_35"
-        app:layout_constraintGuide_percent="0.35"
-        android:orientation="horizontal" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/horizontal_51"
-        app:layout_constraintGuide_percent="0.51"
-        android:orientation="horizontal" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.51" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/horizontal_58"
-        app:layout_constraintGuide_percent="0.58"
-        android:orientation="horizontal" />
-
-    <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.58" />
+
+    <android.support.constraint.Guideline
         android:id="@+id/horizontal_74"
-        app:layout_constraintGuide_percent="0.74"
-        android:orientation="horizontal" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.74" />
 
     <Button
         android:id="@+id/btn_start"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/touch_bg_btn_start"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_51"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintRight_toLeftOf="@id/vertical_92"
-        app:layout_constraintTop_toBottomOf="@id/horizontal_35"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_51"/>
+        app:layout_constraintTop_toBottomOf="@id/horizontal_35" />
 
     <Button
         android:id="@+id/btn_delete"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/touch_bg_btn_delete"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_74"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintRight_toLeftOf="@id/vertical_92"
-        app:layout_constraintTop_toBottomOf="@id/horizontal_58"
-        app:layout_constraintBottom_toTopOf="@id/horizontal_74"/>
+        app:layout_constraintTop_toBottomOf="@id/horizontal_58" />
+
+    <Button
+        android:id="@+id/btn_lighting"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/touch_bg_btn_lighting"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/btn_stop"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_key"
+        app:layout_constraintTop_toBottomOf="@+id/file_preview" />
+
+    <Button
+        android:id="@+id/btn_to_setting"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_8"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_86"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/horizontal_20"
+        android:background="@drawable/touch_bg_btn_to_setting"/>
 
 
 </android.support.constraint.ConstraintLayout>
